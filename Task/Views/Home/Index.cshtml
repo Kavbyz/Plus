@@ -12,7 +12,7 @@
 <form onsubmit="submitForm()" id="formid" method="post">
     <br />
     <label>
-        Введите размер квадратной матрицы
+        Введите размер квадратной матрицы от 3 до 2000
     </label>
     <input type="number" id="countRowColumn" name="count" required min="3" max="2000" onchange="checkMultiplicity()" />
     <br />
@@ -53,8 +53,18 @@
         for (var i = 0; i < arr.length; i++) {
             form.removeChild(arr[i]);
         }
-        arr = new Array();
+        arr = new Array();        
         if (count >= 3 && count <= 2000) {
+            var br = document.createElement('br');
+            form.appendChild(br);
+            arr.push(br);
+            var label = document.createElement('label');
+            label.textContent = "Введите стоку состоящую из 1 и 0 равную размеру квадратной матрицы";
+            form.appendChild(label);
+            arr.push(label);
+            var br = document.createElement('br');
+            form.appendChild(br);
+            arr.push(br);
             for (var i = 0; i < count; i++) {
                 var br = document.createElement('br');
                 form.appendChild(br);
