@@ -2,35 +2,29 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Task.Models;
+using Task;
+using Task.ClassTask;
 
 namespace Task.Controllers
 {
     public class HomeController : Controller
     {
+        TaskPlus task = new TaskPlus();
+
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+        [HttpPost]
+        public IActionResult Index(int count, string[] matrix)
+        {           
+            ViewBag.Plus = task.FindPlus(count, matrix);
             return View();
         }
 

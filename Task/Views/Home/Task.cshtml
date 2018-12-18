@@ -1,0 +1,58 @@
+﻿
+@{
+    ViewData["Title"] = "Task";
+}
+
+<h2>Task</h2>
+<style>
+    input.ng-touched.ng-invalid {
+        border: solid red 2px;
+    }
+
+    input.ng-touched.ng-valid {
+        border: solid green 2px;
+    }
+</style>
+<form id="formid" method="post">
+    @*pattern="^([3-9]|[1-9][0-9]|[1-9][0-9][0-9]|1[0-9][0-9][0-9]|2000)$" onchange="checkMultiplicity()"*@
+    <input type="number" id="countRowColumn" name="count" required  min="3" max="2000" onchange="checkMultiplicity()"/>
+    <br />
+    <label>
+        Matrix
+    </label>
+</form>
+
+<script>
+    var form = document.getElementById('formid');
+    var arr = new Array();
+    function checkMultiplicity() {
+        var count = document.getElementById('countRowColumn').value;
+        for (var i = 0; i < arr.length; i++) {
+            form.removeChild(arr[i]);
+        }
+        arr = new Array();
+        if (count >= 3 && count <= 2000) {
+            alert(count);
+            for (var i = 0; i < count; i++) {
+                var br = document.createElement('br');
+                form.appendChild(br);
+                var input = document.createElement('input');
+                input.type = "number";
+                input.required = true;
+                //input.pattern = "\d{" + count + "}";
+                input.name = "matrix";
+                form.appendChild(input);
+                arr.push(br);
+                arr.push(input);
+            }
+            var br = document.createElement('br');
+            form.appendChild(br);
+            var input = document.createElement('input');
+            input.type = "submit";
+            input.textContent = "Send";
+            form.appendChild(input);
+            arr.push(input);
+            arr.push(br);
+        }
+    }
+</script>
