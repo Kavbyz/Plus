@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Task.ClassTask
 {
-    public class TaskPlus
+    public class TaskPlus: ITaskPluscs
     {
         public bool CheckPlus(int currentRowDown, int currentRowUp, int crrentRow, int indexCheckColumn, string[] matrix, int count, string strColumn)
         {

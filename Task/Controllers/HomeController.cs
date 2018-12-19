@@ -12,8 +12,12 @@ using Task.ClassTask;
 namespace Task.Controllers
 {
     public class HomeController : Controller
-    {
-        TaskPlus task = new TaskPlus();
+    {       
+        ITaskPluscs task;
+        public HomeController(ITaskPluscs taskPluscs)
+        {
+            task = taskPluscs;
+        }
 
         [HttpGet]
         public IActionResult Index()
