@@ -28,8 +28,9 @@ namespace Task.Controllers
         [HttpPost]
         public IActionResult Index(int count, string[] matrix)
         {           
-            ViewBag.Plus = task.FindPlus(count, matrix);
-            return View();
+            //ViewBag.Plus = task.FindPlus(count, matrix);            
+            //return View();
+            return Ok(task.FindPlus(count, matrix));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
