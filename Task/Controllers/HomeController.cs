@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Task.Models;
 using Task;
 using Task.ClassTask;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace Task.Controllers
 {
@@ -26,11 +28,10 @@ namespace Task.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(int count, string[] matrix)
-        {           
-            //ViewBag.Plus = task.FindPlus(count, matrix);            
-            //return View();
-            return Ok(task.FindPlus(count, matrix));
+        public IActionResult Index([FromBody]PlusModel plus)
+        {
+            int pluses = task.FindPlus( plus.Count, plus.Matrix);
+            return Ok(pluses);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

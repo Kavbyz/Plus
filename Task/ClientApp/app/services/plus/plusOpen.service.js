@@ -9,21 +9,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-var PlusService = /** @class */ (function () {
-    function PlusService(httpClient) {
+var PlusOpenService = /** @class */ (function () {
+    function PlusOpenService(httpClient) {
         this.httpClient = httpClient;
-        this.url = "http://localhost:44310/Home/Index";
     }
-    PlusService.prototype.checkPlus = function (plusModel) {
-        var body = { count: plusModel.count, matrix: plusModel.matrix };
-        console.log(body);
-        return this.httpClient.post(this.url, body);
+    PlusOpenService.prototype.openJson = function (fileToUpload) {
+        var url = window.URL.createObjectURL(fileToUpload);
+        console.log(url);
+        return this.httpClient.get(url);
     };
-    PlusService = __decorate([
+    PlusOpenService = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient])
-    ], PlusService);
-    return PlusService;
+    ], PlusOpenService);
+    return PlusOpenService;
 }());
-export { PlusService };
-//# sourceMappingURL=plus.service.js.map
+export { PlusOpenService };
+//# sourceMappingURL=plusOpen.service.js.map

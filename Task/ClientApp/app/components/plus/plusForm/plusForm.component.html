@@ -1,0 +1,21 @@
+﻿
+<h3 *ngIf="isResult">Количество плюсов: {{result}}</h3>
+
+<plusOpenFile [(plusModel)]="plusModel" [(patternMatrix)]="patternMatrix" [(counts)]="counts" [(isCounts)]="isCounts" [(isValidMatrix)]="isValidMatrix" [(isValidCount)]="isValidCount"></plusOpenFile>
+<plusRandomCountAndMatrix [(patternMatrix)]="patternMatrix" [(plusModel)]="plusModel" [(counts)]="counts" [(isCounts)]="isCounts" [(isValidCount)]="isValidCount" [(isValidMatrix)]="isValidMatrix"></plusRandomCountAndMatrix>
+<div *ngIf="isCounts"><plusSaveFile [plusModel]="plusModel" [isValidCount]="isValidCount" [isValidMatrix]="isValidMatrix"></plusSaveFile></div>
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">    
+    
+    <plusCountMatrix [(plusModel)]="plusModel" [(patternMatrix)]="patternMatrix" [(counts)]="counts" [(isCounts)]="isCounts" [(isValidCount)]="isValidCount" [(isValidMatrix)]="isValidMatrix"></plusCountMatrix>
+    
+
+    <div *ngIf="isCounts">        
+        <div class="form-group">
+            <input type="submit" [disabled]="!isValidCount||!isValidMatrix" class="btn btn-default" value="Отправить" />
+        </div>
+    </div>
+    <plusMatrix [plusModel]="plusModel" [patternMatrix]="patternMatrix" [counts]="counts" [(isValidMatrix)]="isValidMatrix"></plusMatrix>
+
+
+
+</form>
