@@ -1,23 +1,20 @@
 ﻿
 <h3 *ngIf="isResult">Количество плюсов: {{result}}</h3>
 
-<div class="form-group">
-    <label>Загрузить проверочный файл</label>
-    <input type="file" name="openFile" class="form-control-file" id="exampleFormControlFile1" (change)="onClickOpen($event.target.files)">
-</div>
-
-
-
-
-
 <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+
+    <div class="form-group">
+        <label>Загрузить проверочный файл</label>
+        <input type="file" name="openFile" class="form-control-file" id="exampleFormControlFile1" (change)="onClickOpen($event.target.files)">
+    </div>
 
     <div>
         <input type="button" name="randomButton" value="Установить случайные значения" class="btn btn-default" (click)="onClickRand()">
     </div>
 
-    <div *ngIf="isCounts">
-        <input type="button" name="saveButton" [disabled]="myForm.invalid" value="Сохранить даннные в файл" class="btn btn-default" (click)="onClickSave(myForm)">
+    <div class="form-group" *ngIf="isCounts">
+        <br />
+        <input type="button" name="saveButton" [disabled]="myForm.invalid" value="Сохранить даннные в файл" class="btn btn-default" (click)="onClickSave(myForm)">        
     </div>
 
     <div class="form-group">
