@@ -5,7 +5,16 @@
     <input type="file" name="openFile" class="btn btn-default" (change)="onClickOpen($event.target.files)">
 </div>-->
 
-<div class="input-group">
+<form>
+    <div class="form-group">
+        <label>
+            Загрузить проверочный файл
+        </label>
+        <input type="file" name="openFile" class="form-control-file" id="exampleFormControlFile1" (change)="onClickOpen($event.target.files)">
+    </div>
+</form>
+
+<!--<div class="input-group">
     <div class="input-group-prepend">
         <span class="input-group-text" id="inputGroupFileAddon01">Загрузить файл</span>
     </div>
@@ -13,4 +22,4 @@
         <input name="openFile" type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" (change)="onClickOpen($event.target.files)">
         <label class="custom-file-label" for="inputGroupFile01">Выберите файл</label>
     </div>
-</div>
+</div>-->

@@ -1,24 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Task.Models;
-using Task;
 using Task.ClassTask;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
+using Task.Models;
 
 namespace Task.Controllers
 {
     public class HomeController : Controller
     {       
-        ITaskPluscs task;
-        public HomeController(ITaskPluscs taskPluscs)
+        IFindPlus task;
+        public HomeController(IFindPlus taskPlus)
         {
-            task = taskPluscs;
+            task = taskPlus;
         }
 
         [HttpGet]
@@ -30,7 +22,7 @@ namespace Task.Controllers
         [HttpPost]
         public IActionResult Index([FromBody]PlusModel plus)
         {
-            int pluses = task.FindPlus( plus.Count, plus.Matrix);
+            int pluses = task.FindPlus(plus);
             return Ok(pluses);
         }
 

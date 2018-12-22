@@ -25,7 +25,13 @@ namespace Task
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<Task.ClassTask.ITaskPluscs, Task.ClassTask.TaskPlus>();
+            services.AddSingleton<Task.ClassTask.ICheckPlus, Task.ClassTask.TaskCheckPlus>();
+            services.AddSingleton<Task.ClassTask.IGetColumnStr, Task.ClassTask.TaskGetColumnStr>();
+            services.AddSingleton<Task.ClassTask.IGetRowStr, Task.ClassTask.TaskGetRowStr>();
+
+            services.AddSingleton<Task.ClassTask.IFindPlus, Task.ClassTask.TaskFindPlus>();
+            
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
