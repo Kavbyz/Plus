@@ -1,8 +1,0 @@
-﻿<label *ngIf="counts.length">
-    Заполните квадратную матрицу 1 или 0
-</label>
-<div *ngFor="let item of counts">
-    <span class="form-group">
-        <input class="form-control" type="text" ngModel name="matrix{{item}}" required pattern="{{patternMatrix}}" [(ngModel)]="plusModel.matrix[item]" (ngModelChange)="checkValid()"/>
-    </span>
-</div>

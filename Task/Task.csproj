@@ -8,16 +8,9 @@
   <ItemGroup>
     <None Remove="ClientApp\app\app.component.ts" />
     <None Remove="ClientApp\app\app.module.ts" />
-    <None Remove="ClientApp\app\components\plus\plusCountMatrix\plusCountMatrix.component.ts" />
     <None Remove="ClientApp\app\components\plus\plusForm\plusForm.component.ts" />
-    <None Remove="ClientApp\app\components\plus\plusMatrix\plusMatrix.component.ts" />
-    <None Remove="ClientApp\app\components\plus\plusOpenFile\plusOpenFile.component.ts" />
-    <None Remove="ClientApp\app\components\plus\plusRandomCountAndMatrix\plusRandomCountAndMatrix.component.ts" />
-    <None Remove="ClientApp\app\components\plus\plusSaveFile\plusSaveFile.component.ts" />
     <None Remove="ClientApp\app\models\plus\plus.model.ts" />
     <None Remove="ClientApp\app\services\plus\plusCheckPlus.service.ts" />
-    <None Remove="ClientApp\app\services\plus\plusOpen.service.ts" />
-    <None Remove="ClientApp\app\services\plus\plusSave.service.ts" />
     <None Remove="ClientApp\main.ts" />
     <None Remove="ClientApp\polyfills.ts" />
   </ItemGroup>
@@ -31,16 +24,9 @@
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\app.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\app.module.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\plus\plusCountMatrix\plusCountMatrix.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\plus\plusForm\plusForm.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\plus\plusMatrix\plusMatrix.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\plus\plusOpenFile\plusOpenFile.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\plus\plusRandomCountAndMatrix\plusRandomCountAndMatrix.component.ts" />
-    <TypeScriptCompile Include="ClientApp\app\components\plus\plusSaveFile\plusSaveFile.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\models\plus\plus.model.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\plus\plusCheckPlus.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\services\plus\plusOpen.service.ts" />
-    <TypeScriptCompile Include="ClientApp\app\services\plus\plusSave.service.ts" />
     <TypeScriptCompile Include="ClientApp\main.ts" />
     <TypeScriptCompile Include="ClientApp\polyfills.ts" />
   </ItemGroup>

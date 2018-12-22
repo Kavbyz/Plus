@@ -20,13 +20,82 @@ var PlusFormComponent = /** @class */ (function () {
     }
     PlusFormComponent.prototype.onSubmit = function (form) {
         var _this = this;
-        if (this.isValidCount && this.isValidMatrix) {
+        if (form.valid) {
             this.plusService.checkPlus(this.plusModel).subscribe(function (data) { _this.result = data; console.log(data); _this.isResult = true; }, function (error) { return console.log(error); });
+        }
+    };
+    PlusFormComponent.prototype.onClickOpen = function (files) {
+        var _this = this;
+        this.plusService.openJson(files.item(0)).subscribe(function (data) {
+            if (data.count && data.matrix) {
+                _this.plusModel.count = data.count;
+                _this.plusModel.matrix = data.matrix;
+                _this.isCounts = true;
+                _this.counts = [];
+                _this.patternMatrix = "^(";
+                for (var i = 0; i < data.count; i++) {
+                    _this.patternMatrix += "[0-1]";
+                }
+                _this.patternMatrix += "$)";
+                for (var i = 0; i < data.count; i++) {
+                    _this.counts.push(i);
+                }
+            }
+        }, function (error) { return alert("Неподходящий файл"); });
+    };
+    PlusFormComponent.prototype.onClickRand = function () {
+        this.counts = [];
+        var randomCount = Math.floor(Math.random() * 2001);
+        this.patternMatrix = "^(";
+        for (var i = 0; i < randomCount; i++) {
+            this.patternMatrix += "[0-1]";
+        }
+        this.patternMatrix += "$)";
+        this.plusModel.count = null;
+        this.plusModel.matrix = [];
+        this.isCounts = true;
+        this.plusModel.count = randomCount;
+        for (var i = 0; i < randomCount; i++) {
+            this.counts.push(i);
+        }
+        var buf = "";
+        for (var i = 0; i < randomCount; i++) {
+            for (var j = 0; j < randomCount; j++) {
+                buf += (Math.floor(Math.random() * 2)).toString();
+            }
+            this.plusModel.matrix.push(buf);
+            buf = "";
+        }
+    };
+    PlusFormComponent.prototype.onClickSave = function (form) {
+        if (form.valid) {
+            this.plusService.saveJson(this.plusModel);
+        }
+    };
+    PlusFormComponent.prototype.onCheckMultiplicity = function (count) {
+        if (count.valid) {
+            this.plusModel.matrix = [];
+            this.isCounts = true;
+            this.counts = [];
+            this.patternMatrix = "^(";
+            for (var i = 0; i < count.value; i++) {
+                this.patternMatrix += "[0-1]";
+            }
+            this.patternMatrix += "$)";
+            for (var i = 0; i < count.value; i++) {
+                this.counts.push(i);
+            }
+        }
+        else {
+            this.isCounts = false;
+            this.counts = [];
+            this.patternMatrix = null;
         }
     };
     PlusFormComponent = __decorate([
         Component({
             selector: 'plusForm',
+            styles: ["\n        input.ng-touched.ng-invalid {border:solid red 2px;}\n        input.ng-touched.ng-valid {border:solid green 2px;}\n    "],
             templateUrl: 'plusForm.component.html',
             providers: [PlusCheckPlusService]
         }),

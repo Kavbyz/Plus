@@ -1,20 +1,46 @@
 ﻿
 <h3 *ngIf="isResult">Количество плюсов: {{result}}</h3>
 
-<plusOpenFile [(plusModel)]="plusModel" [(patternMatrix)]="patternMatrix" [(counts)]="counts" [(isCounts)]="isCounts" [(isValidMatrix)]="isValidMatrix" [(isValidCount)]="isValidCount"></plusOpenFile>
-<plusRandomCountAndMatrix [(patternMatrix)]="patternMatrix" [(plusModel)]="plusModel" [(counts)]="counts" [(isCounts)]="isCounts" [(isValidCount)]="isValidCount" [(isValidMatrix)]="isValidMatrix"></plusRandomCountAndMatrix>
-<div *ngIf="isCounts"><plusSaveFile [plusModel]="plusModel" [isValidCount]="isValidCount" [isValidMatrix]="isValidMatrix"></plusSaveFile></div>
-<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">    
-    
-    <plusCountMatrix [(plusModel)]="plusModel" [(patternMatrix)]="patternMatrix" [(counts)]="counts" [(isCounts)]="isCounts" [(isValidCount)]="isValidCount" [(isValidMatrix)]="isValidMatrix"></plusCountMatrix>
-    
+<div class="form-group">
+    <label>Загрузить проверочный файл</label>
+    <input type="file" name="openFile" class="form-control-file" id="exampleFormControlFile1" (change)="onClickOpen($event.target.files)">
+</div>
 
-    <div *ngIf="isCounts">        
+
+
+
+
+<form #myForm="ngForm" (ngSubmit)="onSubmit(myForm)">
+
+    <div>
+        <input type="button" name="randomButton" value="Установить случайные значения" class="btn btn-default" (click)="onClickRand()">
+    </div>
+
+    <div *ngIf="isCounts">
+        <input type="button" name="saveButton" [disabled]="myForm.invalid" value="Сохранить даннные в файл" class="btn btn-default" (click)="onClickSave(myForm)">
+    </div>
+
+    <div class="form-group">
+        <label>
+            Введите размер квадратной матрицы от 3 до 2000
+        </label>
+        <input class="form-control" type="number" #count="ngModel" [(ngModel)]="plusModel.count" ngModel name="count" required pattern="^([3-9]|[1-9][0-9]|[1-9][0-9][0-9]|1[0-9][0-9][0-9]|2000)$" (ngModelChange)="onCheckMultiplicity(count)" />
+    </div>
+
+
+    <div *ngIf="isCounts">
         <div class="form-group">
-            <input type="submit" [disabled]="!isValidCount||!isValidMatrix" class="btn btn-default" value="Отправить" />
+            <input type="submit" [disabled]="myForm.invalid" class="btn btn-default" value="Отправить" />
         </div>
     </div>
-    <plusMatrix [plusModel]="plusModel" [patternMatrix]="patternMatrix" [counts]="counts" [(isValidMatrix)]="isValidMatrix"></plusMatrix>
+    <label *ngIf="counts.length">
+        Заполните квадратную матрицу 1 или 0
+    </label>
+    <div *ngFor="let item of counts">
+        <span class="form-group">
+            <input class="form-control" type="text" ngModel name="matrix{{item}}" required [pattern]="patternMatrix" [(ngModel)]="plusModel.matrix[item]" />
+        </span>
+    </div>
 
 
 
