@@ -52,7 +52,7 @@ var PlusMatrixComponent = /** @class */ (function () {
     PlusMatrixComponent = __decorate([
         Component({
             selector: 'plusMatrix',
-            styles: ["\n        input.ng-touched.ng-invalid {border:solid red 2px;}\n        input.ng-touched.ng-valid {border:solid green 2px;}\n    "],
+            styles: ["\n        input.ng-invalid {border:solid red 2px;}\n        input.ng-valid {border:solid green 2px;}\n    "],
             templateUrl: 'plusMatrix.component.html'
         })
     ], PlusMatrixComponent);
