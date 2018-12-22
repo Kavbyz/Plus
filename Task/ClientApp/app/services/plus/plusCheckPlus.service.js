@@ -18,21 +18,6 @@ var PlusCheckPlusService = /** @class */ (function () {
     PlusCheckPlusService.prototype.checkPlus = function (plusModel) {
         return this.httpClient.post(this.url, plusModel);
     };
-    PlusCheckPlusService.prototype.saveJson = function (plusModel) {
-        var blob = new Blob([JSON.stringify(plusModel)], { type: 'application/json' });
-        var url = window.URL.createObjectURL(blob);
-        var a = document.createElement("a");
-        a.download = 'test.json';
-        a.href = url;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    };
-    PlusCheckPlusService.prototype.openJson = function (fileToUpload) {
-        var url = window.URL.createObjectURL(fileToUpload);
-        console.log(url);
-        return this.httpClient.get(url);
-    };
     PlusCheckPlusService = __decorate([
         Injectable(),
         __metadata("design:paramtypes", [HttpClient])

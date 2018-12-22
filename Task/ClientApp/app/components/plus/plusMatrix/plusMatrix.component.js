@@ -19,7 +19,13 @@ var PlusMatrixComponent = /** @class */ (function () {
             this.isValidMatrix = false;
         else {
             for (var i = 0; i < this.plusModel.matrix.length; i++) {
-                if (!this.plusModel.matrix[i].match(this.patternMatrix)) {
+                if (this.plusModel.matrix[i]) {
+                    if (!this.plusModel.matrix[i].match(this.patternMatrix)) {
+                        this.isValidMatrix = false;
+                        break;
+                    }
+                }
+                else {
                     this.isValidMatrix = false;
                     break;
                 }

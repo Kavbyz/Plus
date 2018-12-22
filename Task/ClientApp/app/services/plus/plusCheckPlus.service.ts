@@ -13,21 +13,4 @@ export class PlusCheckPlusService {
     checkPlus(plusModel: PlusModel) {
         return this.httpClient.post(this.url, plusModel);
     }
-
-    saveJson(plusModel: PlusModel) {
-        var blob = new Blob([JSON.stringify(plusModel)], { type: 'application/json' });
-        var url = window.URL.createObjectURL(blob);
-        let a = document.createElement("a");
-        a.download = 'test.json';
-        a.href = url;
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-    }
-
-    openJson(fileToUpload: File) {
-        var url = window.URL.createObjectURL(fileToUpload);
-        console.log(url);
-        return this.httpClient.get(url);
-    }
 }
