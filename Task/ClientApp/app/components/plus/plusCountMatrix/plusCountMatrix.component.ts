@@ -5,8 +5,8 @@ import { PlusModel } from '../../../models/plus/plus.model';
 @Component({
     selector: 'plusCountMatrix',
     styles: [`
-        input.ng-touched.ng-invalid {border:solid red 2px;}
-        input.ng-touched.ng-valid {border:solid green 2px;}
+        input.ng-invalid {border:solid red 2px;}
+        input.ng-valid {border:solid green 2px;}
     `],
     templateUrl: 'plusCountMatrix.component.html'
 })

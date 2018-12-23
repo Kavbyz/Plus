@@ -98,7 +98,7 @@ var PlusCountMatrixComponent = /** @class */ (function () {
     PlusCountMatrixComponent = __decorate([
         Component({
             selector: 'plusCountMatrix',
-            styles: ["\n        input.ng-touched.ng-invalid {border:solid red 2px;}\n        input.ng-touched.ng-valid {border:solid green 2px;}\n    "],
+            styles: ["\n        input.ng-invalid {border:solid red 2px;}\n        input.ng-valid {border:solid green 2px;}\n    "],
             templateUrl: 'plusCountMatrix.component.html'
         })
     ], PlusCountMatrixComponent);
