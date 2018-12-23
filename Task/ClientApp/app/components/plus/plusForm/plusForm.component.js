@@ -95,7 +95,7 @@ var PlusFormComponent = /** @class */ (function () {
     PlusFormComponent = __decorate([
         Component({
             selector: 'plusForm',
-            styles: ["\n        input.ng-touched.ng-invalid {border:solid red 2px;}\n        input.ng-touched.ng-valid {border:solid green 2px;}\n    "],
+            styles: ["\n        input.ng-invalid {border:solid red 2px;}\n        input.ng-valid {border:solid green 2px;}\n    "],
             templateUrl: 'plusForm.component.html',
             providers: [PlusCheckPlusService]
         }),

@@ -7,8 +7,8 @@ import { setTimeout } from 'timers';
 @Component({
     selector: 'plusForm',    
     styles: [`
-        input.ng-touched.ng-invalid {border:solid red 2px;}
-        input.ng-touched.ng-valid {border:solid green 2px;}
+        input.ng-invalid {border:solid red 2px;}
+        input.ng-valid {border:solid green 2px;}
     `],
     templateUrl: 'plusForm.component.html',
     providers: [PlusCheckPlusService]
